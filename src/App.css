@@ -1,4 +1,11 @@
 .App {
+  text-align: left;
+ justify-content:center;
+ justify-items: center;
+font-family:"Raleway";
+font-weight: 1;
+}
+.Grid{
   text-align: center;
  justify-content:center;
  justify-items: center;
