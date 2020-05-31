@@ -75,12 +75,14 @@ class Block {
 }
 
 class Blockchain {
-  constructor() {
-    this.chain = [this.createGenesisBlock()];
-    this.difficulty = 2;
-    this.pendingTransactions = [];
-    this.miningReward = 100;
-  }
+  constructor(options) {
+    Object.assign(this, options);
+   }
+    // this.chain = [this.createGenesisBlock()];
+    // this.difficulty = 2;
+    // this.pendingTransactions = [];
+    // this.miningReward = 100;
+  
 
   //tạo block đầu tiên
   createGenesisBlock() {
