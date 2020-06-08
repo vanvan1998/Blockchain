@@ -29,22 +29,8 @@
             "hash": "f82c21f2fd0349113c8c2b0c28e3ac1ed6d5b7c8171677e8ba466f891dc55af0"
         }
     ],
-    "difficulty": 2,
+    "difficulty": 4,
     "pendingTransactions": [
-        {
-            "fromAddress": "04729aaee497f99ff7ed4da9b7a5c23912da6533783b5cee16839b1e2628bc3413672b407a68c7a15a6fe3ea238b16f26e7a35755e258a0b9fb3d007da7a2e9c94",
-            "toAddress": "address2",
-            "amount": 100,
-            "timestamp": 1590918518699,
-            "signature": "3046022100b2300a8312edbfb8a816d1d8bafa3906637be6a4db27259d6696f02c8f7261ed022100aaf355fb0e27484b73ba87d4ab408110ee8d6c1325315e5655349090d1b61252"
-        },
-        {
-            "fromAddress": "04729aaee497f99ff7ed4da9b7a5c23912da6533783b5cee16839b1e2628bc3413672b407a68c7a15a6fe3ea238b16f26e7a35755e258a0b9fb3d007da7a2e9c94",
-            "toAddress": "address2",
-            "amount": 100,
-            "timestamp": 1590918518699,
-            "signature": "3046022100b2300a8312edbfb8a816d1d8bafa3906637be6a4db27259d6696f02c8f7261ed022100aaf355fb0e27484b73ba87d4ab408110ee8d6c1325315e5655349090d1b61252"
-        }
     ],
     "miningReward": 100
 }

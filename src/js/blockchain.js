@@ -77,11 +77,11 @@ class Block {
 class Blockchain {
   constructor(options) {
     Object.assign(this, options);
-   }
     // this.chain = [this.createGenesisBlock()];
     // this.difficulty = 2;
     // this.pendingTransactions = [];
     // this.miningReward = 100;
+  }
   
 
   //tạo block đầu tiên
@@ -107,35 +107,36 @@ class Blockchain {
     const block = new Block(Date.now(), this.pendingTransactions, this.getLatestBlock().hash);
     block.mineBlock(this.difficulty);
 
-    debug('Block successfully mined!');
     this.chain.push(block);
-
+    
     this.pendingTransactions = [];
+    return 'Block successfully mined!';
   }
 
   //thêm giao dịch vào block
   addTransaction(transaction) {
     //địa chỉ gửi và nhận không trống
     if (!transaction.fromAddress || !transaction.toAddress) {
-      throw new Error('Transaction must include from and to address');
+      return 'Transaction must include from and to address';
     }
 
     //kiểm tra hợp lệ không
     if (!transaction.isValid()) {
-      throw new Error('Cannot add invalid transaction to chain');
+      return'Cannot add invalid transaction to chain';
     }
 
     //số tiền gửi đi lớn hơn 0
     if (transaction.amount <= 0) {
-      throw new Error('Transaction amount should be higher than 0');
+      return'Transaction amount should be higher than 0';
     }
 
     //số tiền gửi quá số tiền quy định
     if (this.getBalanceOfAddress(transaction.fromAddress) < transaction.amount) {
-      throw new Error('Not enough balance');
+      return 'Not enough balance';
     }
 
     this.pendingTransactions.push(transaction);
+    return 'send coin success';
   }
 
   //từ các gio dịch, tính số tiền hiện có
@@ -145,16 +146,54 @@ class Blockchain {
     for (const block of this.chain) {
       for (const trans of block.transactions) {
         if (trans.fromAddress === address) {
-          balance -= trans.amount;
+          balance -= +trans.amount;
         }
 
         if (trans.toAddress === address) {
-          balance += trans.amount;
+          balance += +trans.amount;
         }
       }
     }
 
+      for (const trans of this.pendingTransactions) {
+        if (trans.fromAddress === address) {
+          balance -= +trans.amount;
+        }
+
+        if (trans.toAddress === address) {
+          balance += +trans.amount;
+        }
+      }
+
     return balance;
+  }
+
+  getTransOfAddress(address) {
+    let transactions = [];
+
+    for (const block of this.chain) {
+      for (const trans of block.transactions) {
+        if (trans.fromAddress === address) {
+          transactions.push(trans);
+        }
+
+        if (trans.toAddress === address) {
+          transactions.push(trans);
+        }
+      }
+    }
+
+      for (const trans of this.pendingTransactions) {
+        if (trans.fromAddress === address) {
+          transactions.push(trans);
+        }
+
+        if (trans.toAddress === address) {
+          transactions.push(trans);
+        }
+      }
+
+    return transactions;
   }
 
   getAllTransactionsForWallet(address) {

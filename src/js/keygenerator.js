@@ -5,8 +5,8 @@ const ec = new EC('secp256k1');
 
 // Generate a new key pair and convert them to hex-strings
 const key = ec.genKeyPair();
+const privateKey = key.getPrivate('hex');
 const publicKey = key.getPublic('hex');
-const privateKey = key;
 
 // Print the keys to the console
 console.log();

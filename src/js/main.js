@@ -3,9 +3,10 @@ const { Blockchain, Transaction } = require('./blockchain');
 const EC = require('elliptic').ec;
 const ec = new EC('secp256k1');
 
-const privateKey = ec.keyFromPrivate('7c4c45907dec40c91bab3480c39032e90049f1a44f3e18c3e07c23e3273995cf');
+const privateKey = ec.keyFromPrivate('6bf44059835b185e8a0b4e630aa110f2b627755562ae0d26923c41415b180b22');
 
 const publicKey = privateKey.getPublic('hex');
+console.log(publicKey);
 const MyCoin = new Blockchain();
 
 
@@ -14,13 +15,6 @@ tx1.signTransaction(privateKey);
 MyCoin.addTransaction(tx1);
 
 // MyCoin.minePendingTransactions(publicKey);
-var json = JSON.stringify(MyCoin);
-console.log(json);
-var fs = require('fs');
-fs.writeFile("./data.json", json, 'utf8', function (err) {
-    console.log(err);
-});
-  
 // console.log();
 // console.log(`Balance of xavier is ${MyCoin.getBalanceOfAddress(publicKey)}`);
 
