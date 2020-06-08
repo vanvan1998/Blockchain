@@ -267,7 +267,7 @@ class App extends React.Component {
         </Grid>
         <Grid item container direction="row">
           <Grid item xs={3} style={{ marginTop: 9 }}>
-            <MonetizationOnTwoToneIcon ></MonetizationOnTwoToneIcon>
+            <MonetizationOnTwoToneIcon style={{color:'#fcb20d'}}></MonetizationOnTwoToneIcon>
           </Grid>
           <Grid item xs={9}  >
             <p style={{ fontSize: 13, color: "#43a047" }}>{transaction.amount}</p>
@@ -301,7 +301,7 @@ class App extends React.Component {
         </Grid>
         <Grid item container direction="row">
           <Grid item xs={3} style={{ marginTop: 9 }}>
-            <MonetizationOnTwoToneIcon ></MonetizationOnTwoToneIcon>
+            <MonetizationOnTwoToneIcon style={{color:'#fcb20d'}}></MonetizationOnTwoToneIcon>
           </Grid>
           <Grid item xs={9}  >
             <TextField id="standard-basic" value={this.state.cost}
@@ -328,7 +328,7 @@ class App extends React.Component {
               <Grid container direction="row" alignItems="center" style={{ height: "100%" }}>
                 <AccountCircleIcon style={{ fontSize: 30, color: "#43a047" }} ></AccountCircleIcon>
                 <p style={{ fontSize: 18, marginLeft: 10 }}>{user.name}</p>
-                <MonetizationOnTwoToneIcon style={{ marginLeft: 150 }}></MonetizationOnTwoToneIcon>
+                <MonetizationOnTwoToneIcon style={{ marginLeft: 150,color:'#fcb20d' }}></MonetizationOnTwoToneIcon>
                 <p style={{ fontSize: 17, color: "#43a047" }}> &nbsp;{this.state.MyCoin.getBalanceOfAddress(user.publicKey)}</p>
               </Grid>
             </Typography>
@@ -472,7 +472,7 @@ class App extends React.Component {
 
         <Grid item container direction="row">
           <Grid item xs={3} style={{ marginTop: 9 }}>
-            <MonetizationOnTwoToneIcon ></MonetizationOnTwoToneIcon>
+            <MonetizationOnTwoToneIcon style={{color:'#fcb20d'}}></MonetizationOnTwoToneIcon>
           </Grid>
           <Grid item xs={9}  >
             <p style={{ fontSize: 13, color: "#43a047" }}>{transaction.amount}</p>
@@ -506,6 +506,7 @@ class App extends React.Component {
                       color: "white",
                     }
                   }}
+                    placeholder="Search transactions of address"
                     onChange={(event) => { this.setState({ searchText: event.target.value }) }} />
                 </Grid>
                 <Grid item >
